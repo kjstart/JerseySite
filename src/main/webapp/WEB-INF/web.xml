@@ -7,14 +7,30 @@
 	<filter>
 		<filter-name>Jersey Filter</filter-name>
 		<filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+
+		<!--add controller by code -->
 		<init-param>
-			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>com.alvin.study.jersey.controller</param-value>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.alvin.study.jersey.JerseyApp</param-value>
 		</init-param>
 		<init-param>
-			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-name>jersey.config.servlet.filter.forwardOn404</param-name>
 			<param-value>true</param-value>
 		</init-param>
+
+		<!--init-param> <param-name>jersey.config.server.provider.classnames</param-name> 
+			<param-value>org.glassfish.jersey.jackson.JacksonFeature</param-value> </init-param -->
+
+		<!--This is an alternative way to define controller -->
+		<!-- init-param> <param-name>jersey.config.server.provider.packages</param-name> 
+			<param-value>com.alvin.study.jersey.controller</param-value> </init-param -->
+
+		<!--This is an alternative way to define JSP template -->
+		<!-- init-param> <param-name>jersey.config.server.mvc.templateBasePath.jsp</param-name> 
+			<param-value>/jsp</param-value> </init-param> <init-param> <param-name>jersey.config.server.provider.classnames</param-name> 
+			<param-value>org.glassfish.jersey.server.mvc.jsp.JspMvcFeature</param-value> 
+			</init-param -->
+		<!-- End define JSP template -->
 	</filter>
 	<filter-mapping>
 		<filter-name>Jersey Filter</filter-name>
